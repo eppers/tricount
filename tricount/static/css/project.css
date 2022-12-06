@@ -11,3 +11,16 @@
   background-color: #f2dede;
   border-color: #eed3d7;
 }
+
+.event-list__container {
+
+}
+
+.event-list__container a {
+  color: #fff;
+}
+
+.event-list__container  .action__icons a {
+  text-decoration: none;
+  color: #212529;
+}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load bootstrap_icons %}
+{% block title %}Events list{% endblock %}
+
+{% block content %}
+  <h1>Events list</h1>
+<div class="event-list__container">
+  <div class="row">
+    <div class="col-sm">
+      Name
+    </div>
+    <div class="col-sm">
+      Started at
+    </div>
+    <div class="col-sm">
+      Actions
+    </div>
+  </div>
+  {% for event in object_list %}
+     <div class="row">
+        <div class="col-sm">
+          {{ event.label }}
+        </div>
+       <div class="col-sm">
+          {{ event.started_at }}
+        </div>
+        <div class="col-sm action__icons">
+          <a href="{% url 'events:event_update' pk=event.id %}">{% md_icon 'pencil' %}</a>
+          <a href="{% url 'events:event_delete' pk=event.id %}">{% md_icon 'delete' %}</a>
+        </div>
+    </div>
+  {% endfor %}
+  <a href="{% url 'events:event_add' %}" type="button" class="btn btn-primary">Add new</a>
+</div>
+{% endblock content %}
